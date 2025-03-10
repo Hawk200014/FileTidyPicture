@@ -1,5 +1,6 @@
 ﻿using FileTidyBase.Models;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 
@@ -20,9 +21,11 @@ namespace FileTidyPicture.Models
             get { return _height; }
         }
 
+        
+
         public PictureModel(string filePath) : base(filePath)
         {
-            
+
         }
 
         [SupportedOSPlatform("windows")]
@@ -35,11 +38,10 @@ namespace FileTidyPicture.Models
 
         public async Task GetPictureInfo()
         {
-            if(!File.Exists(this.FilePath))
+            if (!File.Exists(this.FilePath))
                 throw new Exception("File does not exist");
 
-            if(System.Runtime.InteropServices.RuntimeInformation
-                                               .IsOSPlatform(OSPlatform.Windows))
+            if (System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 GetPictureDimensions();
             await base.GetFileInfo();
         }
