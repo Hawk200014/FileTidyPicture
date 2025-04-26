@@ -1,5 +1,5 @@
 ﻿using FileTidyBase.Models;
-using System.Drawing;s
+using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 
